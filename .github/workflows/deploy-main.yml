@@ -1,0 +1,29 @@
+name: Deploy Main - Netlify
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout da branch main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Deploy na Netlify
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: '.'
+          production-deploy: true
+          deploy-message: "Deploy manual da branch main"
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          overwrites-pull-request-comment: false
+
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN_MAIN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_MAIN }}
