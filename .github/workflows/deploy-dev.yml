@@ -25,5 +25,5 @@ jobs:
           overwrites-pull-request-comment: false
 
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN_DEV }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_DEV }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.token_dev }}
+          NETLIFY_SITE_ID: ${{ secrets.id_dev }}
